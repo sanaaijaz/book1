@@ -81,16 +81,6 @@ This document outlines the comprehensive specification for the "Physical AI & Hu
 - **F.2.2.6. Retrieval:** Mechanism to retrieve relevant text chunks from Qdrant based on user queries.
 - **F.2.2.7. Generation:** OpenAI Agents/ChatKit SDK to generate conversational responses using retrieved context.
 
-- **F.2.2.1. Chat Interface:** Frontend UI for the RAG chatbot, integrated into the Docusaurus theme.
-    - Button: "Ask AI" (site-wide context).
-    - Button: "Ask About Selected Text" (contextual to user selection).
-- **F.2.2.2. Backend API:** FastAPI backend to handle chatbot requests.
-- **F.2.2.3. Vector Database:** Qdrant Cloud Free Tier for storing textbook content embeddings.
-- **F.2.2.4. Document Store:** Neon Serverless Postgres for storing raw textbook content and metadata.
-- **F.2.2.5. Embedding Generation:** Process to convert textbook content into vector embeddings (e.g., OpenAI Embeddings).
-- **F.2.2.6. Retrieval:** Mechanism to retrieve relevant text chunks from Qdrant based on user queries.
-- **F.2.2.7. Generation:** OpenAI Agents/ChatKit SDK to generate conversational responses using retrieved context.
-
 ### 2.3. Personalization System
 - **F.2.3.1. Personalization Button:** UI button "Personalize Chapter" within each chapter.
 - **F.2.3.2. User Profile Integration:** Utilize user background questions from BetterAuth for personalization.
@@ -696,3 +686,196 @@ Custom Agent Skills will be developed to automate complex, multi-step operations
 - **Location:** Within each chapter's interface, clearly visible.
 - **Functionality:** Toggles the display of the current chapter's content between its original language (English) and Urdu translation.
 - **State:** Enabled when translation service is available. Text changes to "Show Original" when Urdu translation is active, and vice-versa.
+
+## 10. Success Criteria
+
+### 10.1. Technical Success Criteria
+- **TSC.10.1.1. RAG Chatbot Performance:** Achieve sub-5 second response times for 95% of queries under normal load conditions.
+- **TSC.10.1.2. System Availability:** Maintain 99% uptime for the Docusaurus frontend and backend services during the hackathon evaluation period.
+- **TSC.10.1.3. Content Accuracy:** Ensure all textbook content is factually accurate and technically correct through peer review and automated validation.
+- **TSC.10.1.4. AI Feature Integration:** Successfully implement all AI features (RAG chatbot, personalization, translation) with at least 85% accuracy in responses and personalization.
+- **TSC.10.1.5. Scalability:** System must support at least 100 concurrent users without significant performance degradation.
+
+### 10.2. User Experience Success Criteria
+- **UXSC.10.2.1. User Satisfaction:** Achieve a minimum 4.0/5.0 rating for overall user experience based on user testing feedback.
+- **UXSC.10.2.2. Task Completion Rate:** 90% of users successfully complete key tasks (registration, chapter navigation, RAG interaction) without assistance.
+- **UXSC.10.2.3. Accessibility Compliance:** Meet WCAG 2.1 AA standards for accessibility across all features.
+- **UXSC.10.2.4. Translation Quality:** Urdu translations must be understandable by native speakers with at least 80% accuracy in conveying the original meaning.
+
+### 10.3. Hackathon Success Criteria
+- **HSC.10.3.1. Innovation Score:** Achieve a high score (8/10 or above) for innovative use of AI technologies in the educational context.
+- **HSC.10.3.2. Technical Complexity:** Demonstrate sophisticated integration of multiple AI and web technologies as outlined in the architecture.
+- **HSC.10.3.3. Practical Impact:** Show clear educational value and potential for real-world adoption in robotics education.
+- **HSC.10.3.4. Demo Quality:** Present a compelling 90-second demo video that effectively showcases the platform's capabilities.
+- **HSC.10.3.5. Code Quality:** Maintain clean, well-documented code with comprehensive testing coverage.
+
+### 10.4. Completion Criteria
+- **CC.10.4.1. Feature Completeness:** All features specified in sections 2-9 of this specification must be fully implemented and functional.
+- **CC.10.4.2. Documentation:** Complete technical documentation, user guides, and API documentation must be available.
+- **CC.10.4.3. Testing:** All critical and high-priority test cases must pass before submission.
+- **CC.10.4.4. Deployment:** Successfully deploy the application to the target platform (GitHub Pages or Vercel) with all features operational.
+
+## 11. Deliverables
+
+### 11.1. Core Platform
+- **D.11.1.1. Docusaurus Textbook Website:** Fully functional static website containing all textbook content organized by modules and chapters.
+- **D.11.1.2. RAG Chatbot:** Integrated AI chatbot with site-wide and contextual query capabilities.
+- **D.11.1.3. Personalization Engine:** System that adapts content based on user profiles and preferences.
+- **D.11.1.4. Translation System:** Urdu translation functionality for all textbook content.
+- **D.11.1.5. Authentication System:** User registration, login, and profile management with background questions.
+
+### 11.2. AI Integration Components
+- **D.11.2.1. FastAPI Backend:** Backend services for RAG, personalization, and translation APIs.
+- **D.11.2.2. Vector Database Integration:** Qdrant implementation with textbook content embeddings.
+- **D.11.2.3. Database Schema:** Neon Postgres schema and data for textbook content and user profiles.
+- **D.11.2.4. Claude Code Integration:** Subagents and Skills for content generation and workflow automation.
+
+### 11.3. Documentation
+- **D.11.3.1. Technical Documentation:** Comprehensive documentation of system architecture, API specifications, and deployment instructions.
+- **D.11.3.2. User Guide:** Instructions for students and educators on how to use the textbook platform.
+- **D.11.3.3. Developer Guide:** Documentation for extending and maintaining the platform after the hackathon.
+- **D.11.3.4. API Documentation:** Interactive API documentation for all backend endpoints.
+
+### 11.4. Demo and Presentation Materials
+- **D.11.4.1. 90-Second Demo Video:** High-quality video showcasing the platform's key features and capabilities.
+- **D.11.4.2. Presentation Slides:** Slides for hackathon presentation covering technical approach, innovation, and impact.
+- **D.11.4.3. Live Demo Environment:** Deployed instance of the application ready for live demonstration.
+
+### 11.5. Source Code and Repository
+- **D.11.5.1. GitHub Repository:** Public repository containing all source code, documentation, and assets.
+- **D.11.5.2. Version Control:** Clean commit history with meaningful commit messages following conventional commits.
+- **D.11.5.3. License:** Appropriate open-source license file included in the repository.
+
+## 12. Implementation Roadmap
+
+### Phase 1: Foundation Setup (Week 1)
+- **Timeline:** Days 1-7
+- **Objective:** Establish the basic infrastructure and development environment
+- **Tasks:**
+  - Set up Docusaurus project with basic theme and navigation
+  - Initialize Claude Code project with Spec-Kit Plus
+  - Configure GitHub repository with proper branching strategy
+  - Set up basic FastAPI backend structure
+  - Implement initial database schema in Neon Postgres
+  - Create basic chapter structure and content framework
+- **Deliverables:**
+  - Basic Docusaurus website with placeholder content
+  - Initial backend API structure
+  - Database schema implementation
+  - Repository with proper setup and documentation
+
+### Phase 2: Core Content and Authentication (Week 2)
+- **Timeline:** Days 8-14
+- **Objective:** Implement core textbook content and user authentication
+- **Tasks:**
+  - Develop initial textbook content for Module 1 (ROS 2 fundamentals)
+  - Implement BetterAuth integration for user registration/login
+  - Create user profile system with background questions
+  - Design and implement basic UI components for textbook navigation
+  - Implement responsive design and accessibility features
+  - Set up initial Claude Code subagents for content generation
+- **Deliverables:**
+  - Complete Module 1 content in Docusaurus
+  - Working authentication system with user profiles
+  - Basic UI with responsive design
+  - Content generation subagent
+
+### Phase 3: RAG Chatbot Implementation (Week 3)
+- **Timeline:** Days 15-21
+- **Objective:** Develop and integrate the RAG chatbot functionality
+- **Tasks:**
+  - Implement Qdrant vector database integration
+  - Develop embedding generation process for textbook content
+  - Create FastAPI endpoints for RAG queries
+  - Build frontend UI for chatbot interface
+  - Implement "Ask AI" and "Ask About Selected Text" functionality
+  - Integrate OpenAI Agents/ChatKit SDK for response generation
+  - Test and optimize RAG performance
+- **Deliverables:**
+  - Fully functional RAG chatbot
+  - Vector database with textbook embeddings
+  - Working chatbot UI with contextual features
+  - Optimized query and response generation
+
+### Phase 4: Personalization and Translation (Week 4)
+- **Timeline:** Days 22-28
+- **Objective:** Add personalization and translation features
+- **Tasks:**
+  - Implement personalization engine based on user profiles
+  - Create "Personalize Chapter" functionality
+  - Develop Urdu translation system
+  - Implement "Translate to Urdu" functionality
+  - Integrate personalization with RAG responses
+  - Test translation quality and accuracy
+  - Optimize performance for both features
+- **Deliverables:**
+  - Working personalization system
+  - Urdu translation functionality
+  - Integrated UI for both features
+  - Performance-optimized implementations
+
+### Phase 5: Advanced Content and AI Features (Week 5)
+- **Timeline:** Days 29-35
+- **Objective:** Complete textbook content and enhance AI features
+- **Tasks:**
+  - Develop content for Modules 2-4 (Gazebo, Isaac Sim, VLA)
+  - Enhance Claude Code subagents for specialized tasks
+  - Implement advanced AI features (LLM cognitive planning, VLA integration)
+  - Optimize all AI-driven features for performance
+  - Implement comprehensive error handling and graceful degradation
+  - Conduct initial testing and bug fixes
+- **Deliverables:**
+  - Complete textbook content for all modules
+  - Enhanced Claude Code integration
+  - Advanced AI features implementation
+  - Comprehensive error handling
+
+### Phase 6: Testing and Optimization (Week 6)
+- **Timeline:** Days 36-42
+- **Objective:** Ensure quality, performance, and reliability
+- **Tasks:**
+  - Conduct comprehensive testing (unit, integration, end-to-end)
+  - Performance optimization for all components
+  - Security review and vulnerability assessment
+  - Accessibility compliance verification
+  - User acceptance testing with target audience
+  - Bug fixes and refinements based on testing feedback
+- **Deliverables:**
+  - Comprehensive test suite with passing tests
+  - Performance-optimized application
+  - Security-compliant implementation
+  - Accessibility-compliant UI
+  - Bug-free application ready for production
+
+### Phase 7: Deployment and Demo Preparation (Week 7)
+- **Timeline:** Days 43-49
+- **Objective:** Deploy the application and prepare presentation materials
+- **Tasks:**
+  - Deploy application to production environment (GitHub Pages/Vercel)
+  - Set up monitoring and logging infrastructure
+  - Create 90-second demo video showcasing key features
+  - Prepare presentation slides and materials
+  - Conduct final testing on deployed environment
+  - Document deployment process and operational procedures
+- **Deliverables:**
+  - Deployed production application
+  - Monitoring and logging setup
+  - High-quality demo video
+  - Presentation materials
+  - Deployment documentation
+
+### Phase 8: Final Review and Submission (Week 8)
+- **Timeline:** Days 50-56 (Final week before submission deadline)
+- **Objective:** Final quality assurance and submission preparation
+- **Tasks:**
+  - Conduct final review of all features and functionality
+  - Address any remaining issues or improvements
+  - Prepare final documentation package
+  - Verify all deliverables meet requirements
+  - Submit project for hackathon evaluation
+  - Prepare for potential Q&A and presentation
+- **Deliverables:**
+  - Final polished application
+  - Complete documentation package
+  - Submitted project for evaluation
+  - Presentation-ready materials
